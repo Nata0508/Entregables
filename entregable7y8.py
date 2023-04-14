@@ -18,8 +18,20 @@ class Cuenta:
         self.__titular = titular
         self.__cantidad = cantidad
 
+    @property
+    def titular(self):
+        return self.__titular
+
+    @titular.setter
+    def titular(self, nuevo_titular):
+        self.__titular = nuevo_titular
+
+    @property
+    def cantidad(self):
+        return self.__cantidad
+
     # Métodos getters y setters para los atributos
-    def get_titular(self):
+    '''def get_titular(self):
         return self.__titular
 
     def set_titular(self, titular):
@@ -31,7 +43,7 @@ class Cuenta:
     def set_cantidad(self, cantidad):
         if cantidad < 0:
             print('La cantidad no puede ser negativa')
-        self.__cantidad = cantidad
+        self.__cantidad = cantidad'''
 
     # Método para mostrar los datos de la cuenta
     def mostrar(self):
@@ -93,11 +105,21 @@ class CuentaJoven(Cuenta):
         super().__init__(titular, cantidad)
         self.bonificacion = bonificacion
 
-    def set_bonificacion(self, bonificacion):
+    @property
+    def bonificacion(self):
+        return self.__bonificacion
+
+    @bonificacion.setter
+    def bonificacion(self, value):
+        if value < 0:
+            raise ValueError("Labonificación debe ser un número positivo")
+        self.__bonificacion = value
+
+    '''def set_bonificacion(self, bonificacion):
         self.bonificacion = bonificacion
 
     def get_bonificacion(self):
-        return self.bonificacion
+        return self.bonificacion'''
 
     def es_titular_valido(self):
         edad = int(input('Ingresa tu edad: '))
