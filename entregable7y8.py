@@ -11,9 +11,6 @@
 class Cuenta:
     def __init__(self, titular, cantidad=0.0):
         while cantidad < 0:
-        #No quise usar la Excepción para que el Usuario pueda seguir interactuando
-        #if cantidad < 0:
-            #raise ValueError('La cantidad no puede ser negativa')
             cantidad = int(input("Ingrese Un Monto Positivo: "))
         self.__titular = titular
         self.__cantidad = cantidad
@@ -29,21 +26,6 @@ class Cuenta:
     @property
     def cantidad(self):
         return self.__cantidad
-
-    # Métodos getters y setters para los atributos
-    '''def get_titular(self):
-        return self.__titular
-
-    def set_titular(self, titular):
-        self.__titular = titular
-
-    def get_cantidad(self):
-        return self.__cantidad
-
-    def set_cantidad(self, cantidad):
-        if cantidad < 0:
-            print('La cantidad no puede ser negativa')
-        self.__cantidad = cantidad'''
 
     # Método para mostrar los datos de la cuenta
     def mostrar(self):
@@ -114,12 +96,6 @@ class CuentaJoven(Cuenta):
         if value < 0:
             raise ValueError("Labonificación debe ser un número positivo")
         self.__bonificacion = value
-
-    '''def set_bonificacion(self, bonificacion):
-        self.bonificacion = bonificacion
-
-    def get_bonificacion(self):
-        return self.bonificacion'''
 
     def es_titular_valido(self):
         edad = int(input('Ingresa tu edad: '))
